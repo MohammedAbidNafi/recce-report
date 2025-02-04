@@ -1,9 +1,9 @@
 import { SafeAreaView, Text } from "react-native";
 
-export default function HomeScreen() {
+export default function CalendarScreen() {
   return (
     <SafeAreaView>
-      <Text className="text-white">Home Screen</Text>
+      <Text className="text-white">Calendar Screen</Text>
     </SafeAreaView>
   );
 }
