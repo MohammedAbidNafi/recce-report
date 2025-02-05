@@ -4,7 +4,6 @@ import {
   Image,
   Dimensions,
   Pressable,
-  Text,
   PanResponder,
   ImageProps,
 } from "react-native";
@@ -17,7 +16,6 @@ interface ImageCarouselProps {
 
 const ImageCarousel: React.FC<ImageCarouselProps> = ({
   images,
-  info,
   autoplayInterval = 3000,
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -34,7 +32,6 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
     );
   };
 
-  // Autoplay setup
   useEffect(() => {
     startAutoplay();
     return () => stopAutoplay();

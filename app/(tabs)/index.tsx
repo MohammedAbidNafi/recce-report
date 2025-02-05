@@ -3,7 +3,7 @@ import { SafeAreaView, Text } from "react-native";
 export default function HomeScreen() {
   return (
     <SafeAreaView>
-      <Text className="text-white">Home Screen</Text>
+      <Text className="text-black">Home Screen</Text>
     </SafeAreaView>
   );
 }

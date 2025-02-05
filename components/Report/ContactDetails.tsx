@@ -2,7 +2,6 @@ import React from "react";
 import { Image, Pressable, Text, View } from "react-native";
 
 import { Asset } from "expo-asset";
-import { Link } from "expo-router";
 
 const ContactDetails = () => {
   return (

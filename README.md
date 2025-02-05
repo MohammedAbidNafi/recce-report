@@ -1,8 +1,12 @@
-# Welcome to your Expo app 👋
+# Recce-Report-App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Setup instructions
 
-## Get started
+1. Clone the repository
+
+   ```bash
+   git clone https://github.com/MohammedAbidNafi/recce-report.git
+   ```
 
 1. Install dependencies
 
@@ -10,10 +14,16 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
    npm install
    ```
 
-2. Start the app
+   or
 
    ```bash
-    npx expo start
+   bun install
+   ```
+
+1. Start the app
+
+   ```bash
+    bun start
    ```
 
 In the output, you'll find options to open the app in a
@@ -23,28 +33,74 @@ In the output, you'll find options to open the app in a
 - [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
 - [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Scan the QR code with Expo Go (Android) or Camera app (iOS)
 
-## Get a fresh project
+## Libraries used
 
-When you're ready, run:
+### @react-native-picker/picker
 
-```bash
-npm run reset-project
+A platform-native picker component for React Native. Used in our app for:
+
+- Selecting internet availability options
+- Choosing WiFi types
+- Setting internet speed levels
+- Native feel dropdown selections
+- Better user experience than standard dropdowns
+
+### expo-image-picker
+
+Provides access to the system's UI for selecting images and videos from the phone's library or taking a photo with the camera. In our app, it's used for:
+
+- Uploading venue photos
+- Handling image selection from gallery
+- Managing image permissions
+- Optimizing image quality
+- Supporting multiple image formats
+
+### expo-asset
+
+Handles asset management in Expo apps. We use it for:
+
+- Loading local images efficiently
+- Managing static assets
+- Caching assets for better performance
+- Handling asset loading states
+- Supporting different image formats
+
+## Challenges
+
+### 1. Dynamic Image Loading Limitations
+
+One of the significant challenges faced was the inability to load images dynamically in React Native. The require() function only accepts static string literals, not variables. So had to use this:
+
+```typescript
+const imageMapping = {
+  profile1: require("../../assets/images/Profile/profile1.png"),
+  profile2: require("../../assets/images/Profile/profile2.png"),
+  admin: require("../../assets/images/Profile/profile3.png"),
+};
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Instead of loading the path from Local Storage directly
 
-## Learn more
+### 2. Cross-Platform UI Inconsistencies
 
-To learn more about developing your project with Expo, look at the following resources:
+The app faced rendering differences between iOS and web platforms. A notable example was text overflow handling - in iOS, notification text content would overflow its container and extend beyond screen boundaries, while the same content displayed properly on web.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### 3. NativeWind Version Compatibility Issues
 
-## Join the community
+The integration of NativeWind for styling presented version compatibility challenges. Initially installing via documentation pulled in Tailwind CSS v4, which wasn't compatible. This required:
 
-Join our community of developers creating universal apps.
+- Manually downgrading to Tailwind CSS v3
+- Downgrading NativeWind to match Tailwind v3
+- Resolving dependency conflicts
+- Updating configuration files
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Final working versions:
+
+```json
+{
+  "nativewind": "^4.0.36",
+  "tailwindcss": "^3.3.2"
+}
+```

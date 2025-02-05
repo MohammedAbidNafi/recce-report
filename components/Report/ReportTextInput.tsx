@@ -3,7 +3,6 @@ import { Text, TextInput, View } from "react-native";
 
 const ReportTextInput = ({
   placeholder,
-  inputClassName,
   boxClassName,
   value,
   editable,

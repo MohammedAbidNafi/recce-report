@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, Pressable, Text, View } from "react-native";
+import { Image, Text, View } from "react-native";
 
 import { Asset } from "expo-asset";
 import { Link, RelativePathString } from "expo-router";

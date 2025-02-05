@@ -3,16 +3,13 @@ import Form from "@/components/Report/Form";
 import ImageCarousel from "@/components/Report/ImageCarousel";
 import VenueDetails from "@/components/Report/VenueDetails";
 import { Stack, useLocalSearchParams } from "expo-router";
-import { useEffect } from "react";
 import {
   ActivityIndicator,
-  Image,
   SafeAreaView,
   ScrollView,
   Text,
   View,
 } from "react-native";
-import { Asset } from "expo-asset";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 interface RecceData {

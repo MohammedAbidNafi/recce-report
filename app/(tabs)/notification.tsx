@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   Text,
   View,
+  RefreshControl,
 } from "react-native";
 
 interface NotificationType {
@@ -30,6 +31,8 @@ export default function NotificationScreen() {
     data: notificationData,
     isLoading,
     error,
+    refetch,
+    isRefetching,
   } = useQuery({
     queryKey: ["notification"],
   });
@@ -82,6 +85,14 @@ export default function NotificationScreen() {
           renderItem={({ item }) => <Notification details={item} />}
           keyExtractor={(item) => item.notificationID}
           contentContainerStyle={{ flexGrow: 1 }}
+          refreshControl={
+            <RefreshControl
+              refreshing={isRefetching}
+              onRefresh={refetch}
+              colors={["#5B4FE9"]}
+              tintColor="#5B4FE9"
+            />
+          }
         />
       )}
     </SafeAreaView>

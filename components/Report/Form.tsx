@@ -1,12 +1,4 @@
-import {
-  Image,
-  Pressable,
-  SafeAreaView,
-  ScrollView,
-  Text,
-  TextInput,
-  View,
-} from "react-native";
+import { Image, Pressable, Text, TextInput, View } from "react-native";
 import ReportTextInput from "./ReportTextInput";
 import * as ImagePicker from "expo-image-picker";
 import { useState } from "react";
