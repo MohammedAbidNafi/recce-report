@@ -111,36 +111,36 @@ Final working versions:
 
 <img src="screenshots/notification.PNG" width="300" alt="Notifications" />
 
-_Real-time updates and notification management_
+Real-time updates and notification management\_
 
 ### Report Details
 
 <img src="screenshots/venue.PNG" width="300" alt="Report Details" />
 
-_Comprehensive view of venue details with contact information_
+Comprehensive view of venue details with contact information\_
 
 ### Form Submission
 
 <img src="screenshots/form.PNG" width="300" alt="Form Screen" />
 
-_Interactive form for submitting venue details and specifications_
+Interactive form for submitting venue details and specifications\_
 
 ### Form Validations
 
 <img src="screenshots/form-validation.PNG" width="300" alt="Form validation" />
-_Real-time form validation and error messages_
+Real-time form validation and error messages_
 
 ### Picker UI
 
 <img src="screenshots/picker.PNG" width="300" alt="Picker UI" />
-_Interactive Native picker UI for selecting options
+Interactive Native picker UI for selecting options
 
 ### Type Validation
 
 <img src="screenshots/type-validation.PNG" width="300" alt="Type Validation" />
-_Real-time type validation and error messages_
+Real-time type validation and error messages_
 
 ### Feedback
 
 <img src="screenshots/feedback.PNG" width="300" alt="Feedback" />
-_Feedback to show form has been submitted
+Feedback to show form has been submitted
