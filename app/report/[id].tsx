@@ -4,7 +4,14 @@ import ImageCarousel from "@/components/Report/ImageCarousel";
 import VenueDetails from "@/components/Report/VenueDetails";
 import { Stack, useLocalSearchParams } from "expo-router";
 import { useEffect } from "react";
-import { Image, SafeAreaView, ScrollView, Text, View } from "react-native";
+import {
+  ActivityIndicator,
+  Image,
+  SafeAreaView,
+  ScrollView,
+  Text,
+  View,
+} from "react-native";
 import { Asset } from "expo-asset";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 
@@ -25,7 +32,11 @@ const Report = () => {
   const { id } = useLocalSearchParams();
 
   const queryClient = useQueryClient();
-  const { data: recceData } = useQuery<RecceData>({
+  const {
+    data: recceData,
+    isLoading,
+    error,
+  } = useQuery<RecceData>({
     queryKey: ["recce", id],
     queryFn: async (): Promise<RecceData> => {
       const allData = queryClient.getQueryData<{ reports: RecceData }>([
@@ -48,6 +59,33 @@ const Report = () => {
     require("../../assets/images/Report/call.png"),
     require("../../assets/images/Report/maps.png"),
   ];
+
+  if (isLoading) {
+    return (
+      <SafeAreaView className="bg-white flex-1">
+        <Stack.Screen options={{ headerShown: true }} />
+        <View className="flex-1 justify-center items-center">
+          <ActivityIndicator size="large" color="#5B4FE9" />
+          <Text className="text-gray-600 mt-2">Loading report details...</Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
+  if (error) {
+    return (
+      <SafeAreaView className="bg-white flex-1">
+        <Stack.Screen options={{ headerShown: true }} />
+        <View className="flex-1 justify-center items-center p-4">
+          <Text className="text-red-500 text-lg mb-2">Error</Text>
+          <Text className="text-gray-600 text-center">
+            {error instanceof Error ? error.message : "Failed to load report"}
+          </Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
   return (
     <SafeAreaView className="bg-white">
       <Stack.Screen
