@@ -6,6 +6,7 @@ import {
   Pressable,
   Text,
   PanResponder,
+  ImageProps,
 } from "react-native";
 
 interface ImageCarouselProps {
@@ -75,12 +76,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
         {...panResponder.panHandlers}
       >
         <Image
-          source={
-            typeof images[activeIndex] === "string" &&
-            images[activeIndex].startsWith("http")
-              ? { uri: images[activeIndex] }
-              : images[activeIndex]
-          }
+          source={images[activeIndex] as ImageProps}
           className="h-[250px] rounded-lg"
           style={{ width: windowWidth - 32 }}
           resizeMode="contain"
