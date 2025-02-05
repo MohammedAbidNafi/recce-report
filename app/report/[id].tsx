@@ -52,7 +52,6 @@ const Report = () => {
     },
     enabled: !!id,
   });
-  console.log(id);
 
   const localImages = [
     require("../../assets/images/Report/carousel1.png"),

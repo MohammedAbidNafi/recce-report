@@ -89,7 +89,6 @@ const Form = () => {
   });
 
   const onSubmit = (data: FormData) => {
-    console.log(data);
     mutation.mutate(data);
     router.back();
   };

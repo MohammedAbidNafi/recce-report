@@ -6,6 +6,7 @@ const ReportTextInput = ({
   inputClassName,
   boxClassName,
   value,
+  editable,
   onChangeText,
   error,
 }: {
@@ -13,6 +14,7 @@ const ReportTextInput = ({
   inputClassName?: string;
   boxClassName?: string;
   value?: string;
+  editable?: boolean;
   onChangeText: (text: string) => void;
   error?: string;
 }) => {
@@ -23,6 +25,7 @@ const ReportTextInput = ({
         className={`text-black bg-[#F9F9F9] w-full  mt-1 h-11 px-3 rounded ${
           error ? "border border-red-500" : ""
         }`}
+        editable={editable}
         value={value}
         onChangeText={onChangeText}
       />
