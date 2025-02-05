@@ -104,3 +104,43 @@ Final working versions:
   "tailwindcss": "^3.3.2"
 }
 ```
+
+## App Screenshots
+
+### Notifications Center
+
+<img src="screenshots/notification.PNG" width="300" alt="Notifications" />
+
+_Real-time updates and notification management_
+
+### Report Details
+
+<img src="screenshots/venue.PNG" width="300" alt="Report Details" />
+
+_Comprehensive view of venue details with contact information_
+
+### Form Submission
+
+<img src="screenshots/form.PNG" width="300" alt="Form Screen" />
+
+_Interactive form for submitting venue details and specifications_
+
+### Form Validations
+
+<img src="screenshots/form-validation.PNG" width="300" alt="Form validation" />
+_Real-time form validation and error messages_
+
+### Picker UI
+
+<img src="screenshots/picker.PNG" width="300" alt="Picker UI" />
+_Interactive Native picker UI for selecting options
+
+### Type Validation
+
+<img src="screenshots/type-validation.PNG" width="300" alt="Type Validation" />
+_Real-time type validation and error messages_
+
+### Feedback
+
+<img src="screenshots/feedback.PNG" width="300" alt="Feedback" />
+_Feedback to show form has been submitted

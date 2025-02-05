@@ -1,4 +1,4 @@
-import { Image, Pressable, Text, TextInput, View } from "react-native";
+import { Alert, Image, Pressable, Text, TextInput, View } from "react-native";
 import ReportTextInput from "./ReportTextInput";
 import * as ImagePicker from "expo-image-picker";
 import { useState } from "react";
@@ -14,10 +14,10 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const formSchema = z.object({
   openTime: z.string().min(1, "Open time is required"),
   closeTime: z.string().min(1, "Close time is required"),
-  capacity: z.string().min(1, "Capacity is required"),
-  length: z.string().min(1, "Length is required"),
-  width: z.string().min(1, "Width is required"),
-  height: z.string().min(1, "Height is required"),
+  capacity: z.number().min(1, "Capacity is required"),
+  length: z.number().min(1, "Length is required"),
+  width: z.number().min(1, "Width is required"),
+  height: z.number().min(1, "Height is required"),
   internetAvailability: z.enum(["yes", "no"]),
   wifiType: z.enum(["public", "private", "none"]),
   internetSpeed: z.enum(["high", "medium", "low", "none"]),
@@ -63,7 +63,6 @@ const Form = () => {
         createdAt: new Date().toISOString(),
       };
 
-      // Group submissions by recceID
       if (!parsedSubmissions[id as string]) {
         parsedSubmissions[id as string] = [];
       }
@@ -82,6 +81,7 @@ const Form = () => {
 
   const onSubmit = (data: FormData) => {
     mutation.mutate(data);
+    Alert.alert("Recce Form Submitted");
     router.back();
   };
 
@@ -104,7 +104,7 @@ const Form = () => {
 
     if (!result.canceled) {
       setImage(result.assets[0].uri);
-      // Extract filename from uri
+
       const fileName =
         result.assets[0].uri.split("/").pop() || "Selected image";
       setImageName(fileName);
